@@ -119,6 +119,7 @@ class GraphExtractor:
 
         for doc_index, text in enumerate(texts):
             try:
+                # 大模型抽取实体的结果
                 # Invoke the entity extraction
                 result = await self._process_document(text, prompt_variables)
                 source_doc_map[doc_index] = text
@@ -134,6 +135,18 @@ class GraphExtractor:
                     },
                 )
 
+        """
+            Graph:
+                - Entity: name type description source_id
+                    - 有重复 Entity, 则叠加 source_id (doc_index)
+                    - 有重复 Entity, 则更新为最后一个非空的 type
+                    - 有重复 Entity, 则按照参数 选取最长的 或者 叠加 description
+
+                - Edge: source target description weight source_id
+                    - 有重复 Edge, 则叠加 source_id (doc_index)
+                    - 有重复 Edge, 则加等 weight
+                    - 有重复 Edge, 则按照参数 选取最长的 或者 叠加 description
+        """
         output = await self._process_results(
             all_records,
             prompt_variables.get(self._tuple_delimiter_key, DEFAULT_TUPLE_DELIMITER),

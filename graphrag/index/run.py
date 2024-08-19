@@ -319,6 +319,18 @@ async def run_pipeline(
                 continue
 
             stats.workflows[workflow_name] = {"overall": 0.0}
+            """
+            Datashaper(workflow) 中的每个 step 代表一个 node, workflow 内部的依赖由 datashaper 解决(支持 Pipline, 支持 DAG ?不确定)
+            GraphRAG 中每个 workflow 代表一个 node, graph 内部的依赖由 GraphRAG 解决(支持 DAG)
+
+            inject_workflow_data_dependencies
+                1. 负责连接 source 和 各个 workflow
+                2. 负责连接 不同的 workflow
+                3. 一个 workflow 的输入可以是 source 或者其他 workflow 的输出
+            
+                使用 parquet 作为 node 之间数据流转 的磁盘数据存储格式
+                使用 dataframe 作为 node/step 之间数据流转 的内存数据存储格式
+            """
             await inject_workflow_data_dependencies(workflow)
 
             workflow_start_time = time.time()
@@ -326,6 +338,10 @@ async def run_pipeline(
             await write_workflow_stats(workflow, result, workflow_start_time)
 
             # Save the output from the workflow
+            """
+            至少会白保存为 parquet 数据存储格式
+            可以增加一个 json 数据存储格式, 方便查看 workflow 之间的数据
+            """
             output = await emit_workflow_output(workflow)
             yield PipelineRunResult(workflow_name, output, None)
             output = None

@@ -15,6 +15,18 @@ from graphrag.index.progress import ProgressReporter
 from graphrag.index.storage import PipelineStorage
 from graphrag.index.utils import gen_md5_hash
 
+"""
+使用正则匹配后, 如果匹配下面的表达式, 那么可以获取 字符串 中每个捕获组的值, 可以按照字典给出结果：
+{
+    "source": "",
+    "year": "",
+    "month": "",
+    "day": "",
+    "author": ""
+}
+这个就是 group 信息, 会添加到 Dataframe 中 (columns)
+"""
+
 DEFAULT_FILE_PATTERN = re.compile(
     r".*[\\/](?P<source>[^\\/]+)[\\/](?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})_(?P<author>[^_]+)_\d+\.txt"
 )
@@ -55,6 +67,12 @@ async def load(
 
     files_loaded = []
 
+    """
+    GraphRAG 的 source:
+        id title text ...{group}[name,age]
+        1  a     abc...          a,   1
+    每一行代表一个文件
+    """
     for file, group in files:
         try:
             files_loaded.append(await load_file(file, group))

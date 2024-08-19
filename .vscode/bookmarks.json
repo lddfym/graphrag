@@ -1,0 +1,169 @@
+{
+	"files": [
+		{
+			"path": "graphrag/index/__main__.py",
+			"bookmarks": [
+				{
+					"line": 75,
+					"column": 9,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "graphrag/index/cli.py",
+			"bookmarks": [
+				{
+					"line": 84,
+					"column": 7,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "graphrag/index/init_content.py",
+			"bookmarks": [
+				{
+					"line": 93,
+					"column": 15,
+					"label": ""
+				},
+				{
+					"line": 101,
+					"column": 25,
+					"label": ""
+				},
+				{
+					"line": 109,
+					"column": 14,
+					"label": ""
+				},
+				{
+					"line": 117,
+					"column": 16,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "graphrag/index/graph/extractors/graph/prompts.py",
+			"bookmarks": [
+				{
+					"line": 5,
+					"column": 11,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "graphrag/index/graph/extractors/summarize/prompts.py",
+			"bookmarks": [
+				{
+					"line": 5,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "graphrag/index/graph/extractors/claims/prompts.py",
+			"bookmarks": [
+				{
+					"line": 5,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "graphrag/index/graph/extractors/community_reports/prompts.py",
+			"bookmarks": [
+				{
+					"line": 4,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "graphrag/index/run.py",
+			"bookmarks": [
+				{
+					"line": 69,
+					"column": 18,
+					"label": ""
+				},
+				{
+					"line": 153,
+					"column": 27,
+					"label": ""
+				},
+				{
+					"line": 170,
+					"column": 17,
+					"label": ""
+				},
+				{
+					"line": 219,
+					"column": 30,
+					"label": ""
+				},
+				{
+					"line": 333,
+					"column": 30,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "graphrag/index/workflows/load.py",
+			"bookmarks": [
+				{
+					"line": 120,
+					"column": 12,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "graphrag/index/create_pipeline_config.py",
+			"bookmarks": [
+				{
+					"line": 109,
+					"column": 14,
+					"label": ""
+				},
+				{
+					"line": 128,
+					"column": 13,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "graphrag/index/workflows/v1/create_base_documents.py",
+			"bookmarks": [
+				{
+					"line": 9,
+					"column": 7,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "graphrag/index/input/text.py",
+			"bookmarks": [
+				{
+					"line": 26,
+					"column": 6,
+					"label": ""
+				},
+				{
+					"line": 70,
+					"column": 16,
+					"label": ""
+				}
+			]
+		}
+	]
+}

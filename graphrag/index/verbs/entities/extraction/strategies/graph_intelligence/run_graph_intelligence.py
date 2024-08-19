@@ -96,6 +96,7 @@ async def run_extract_entities(
     )
 
     graph = results.output
+    # 将 source_id 转成 doc_id (即 chunk_id)
     # Map the "source_id" back to the "id" field
     for _, node in graph.nodes(data=True):  # type: ignore
         if node is not None:

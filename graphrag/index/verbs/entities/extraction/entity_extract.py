@@ -166,8 +166,8 @@ async def entity_extract(
         num_threads=kwargs.get("num_threads", 4),
     )
 
-    to_result = []
-    graph_to_result = []
+    to_result = []  # entities
+    graph_to_result = []  # graphmls
     for result in results:
         if result:
             to_result.append(result[0])

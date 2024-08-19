@@ -98,7 +98,8 @@ def chunk(
     output[to] = output.apply(
         cast(
             Any,
-            lambda x: run_strategy(strategy_exec, x[column], strategy_config, tick),
+            lambda x: run_strategy(
+                strategy_exec, x[column], strategy_config, tick),
         ),
         axis=1,
     )
@@ -123,7 +124,7 @@ def run_strategy(
         if isinstance(item, str):
             texts.append(item)
         else:
-            texts.append(item[1])
+            texts.append(item[1])   # input: [[md5-1, text], ...]
 
     strategy_results = strategy(texts, {**strategy_args}, tick)
 

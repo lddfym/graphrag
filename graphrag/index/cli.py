@@ -89,6 +89,9 @@ def index_cli(
     if init:
         _initialize_project_at(root, progress_reporter)
         sys.exit(0)
+    
+    # 创建默认配置
+    # 后续在 crate_workflow 时会执行 build_step
     if overlay_defaults:
         pipeline_config: str | PipelineConfig = _create_default_config(
             root, config, verbose, dryrun or False, progress_reporter
